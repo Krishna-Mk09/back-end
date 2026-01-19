@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You Note</title>
+    <style type="text/css">
+        /* Client-specific styles */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; }
+
+        /* Reset styles */
+        img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+        table { border-collapse: collapse !important; }
+        body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; }
+
+        /* Typography */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: #827d7d !important;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body style="background-color: rgb(253,252,252); margin: 0; padding: 0;">
+<!-- Main Wrapper -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td align="center" style="padding: 40px 0;">
+
+            <!-- Email Container -->
+            <table border="0" cellpadding="0" cellspacing="0" width="600" style="max-width: 600px; background-color: #f0f4f4; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+
+                <!-- Header Bar (Optional Color Strip) -->
+                <tr>
+                    <td bgcolor="#007bff" height="6" style="font-size: 0; line-height: 0;">&nbsp;</td>
+                </tr>
+
+                <!-- Content -->
+                <tr>
+                    <td style="padding: 40px;">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td style="padding-bottom: 20px;">
+                                    <h1 style="margin: 0; font-size: 24px; color: #1a1a1a;">Thank you!</h1>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 20px; font-size: 16px; color: #4a4a4a;">
+                                    Dear  <span th:text="${name}">User</span>,
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 20px; font-size: 16px; color: #4a4a4a;">
+                                    I truly appreciate you taking the time to review my portfolio. Your feedback was incredibly valuable.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 20px; font-size: 16px; color: #4a4a4a;">
+                                    I ll try to incorporate your suggestions to improve the overall presentation. If you have a moment in the future, I would love to hear your thoughts on the updates.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-bottom: 30px; font-size: 16px; color: #4a4a4a;">
+                                    Thank you again for your time and insights.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-top: 1px solid #eeeeee; padding-top: 30px; font-size: 16px; color: #4a4a4a;">
+                                    Best regards,<br>
+                                    <strong>Krishna  Mugala. </strong><br>
+                                    <a href="www.krishnamugala-mk09.in" style="color: #007bff; text-decoration: none;"> <strong> MK-Portfolio</strong></a><br>
+                                    <a href="https://www.linkedin.com/in/krishna-mugala-4b62541b1/" style="color: #007bff; text-decoration: none;">
+                                        <strong>LinkedIn</strong>  </a>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Footer -->
+                <tr>
+                    <td bgcolor="#f9f9f9" align="center" style="padding: 20px; font-size: 12px; color: #999999;">
+                        <p style="margin: 0;">&copy; 2026 Krishna. All rights reserved.</p>
+                    </td>
+                </tr>
+            </table>
+            <!-- End Email Container -->
+
+            <!-- Spacer -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td height="40" style="font-size: 0; line-height: 0;">&nbsp;</td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>
