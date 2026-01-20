@@ -13,9 +13,6 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
-
 
 @Service
 @RequiredArgsConstructor
@@ -26,27 +23,29 @@ public class EmailServiceImpl implements EmailService {
     private final TemplateEngine templateEngine;
 
     @Async
+    @Override
     public String sendEmail(EmailRequest request) {
-
         try {
             Context context = new Context();
             context.setVariable("name", request.getUserName());
             String htmlContent = templateEngine.process("Feedback", context);
+
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+
             helper.setTo(request.getSenderEmail());
             helper.setSubject("Feedback from Krishna");
             helper.setText(htmlContent, true);
-            helper.setFrom("krishna.mugala9@gmail.com", " MK-Portfolio");
+            helper.setFrom("krishna.mugala9@gmail.com", "MK-Portfolio"); // must be verified in Brevo
             helper.setReplyTo("krishna.mugala9@gmail.com");
+
             mailSender.send(mimeMessage);
-        } catch (MessagingException e) {
+            log.info("Email sent successfully to {}", request.getSenderEmail());
+        } catch (MessagingException | UnsupportedEncodingException e) {
+            log.error("Failed to send email", e);
             throw new RuntimeException("Email sending failed", e);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        } catch (Exception e) {
-            throw e;
         }
+
         return "Email Sent Successfully";
     }
 }
