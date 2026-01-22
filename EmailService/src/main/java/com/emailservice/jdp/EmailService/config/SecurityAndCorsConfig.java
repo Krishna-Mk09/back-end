@@ -18,18 +18,14 @@ public class SecurityAndCorsConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            // 🔴 VERY IMPORTANT
-            .csrf(AbstractHttpConfigurer::disable)
-            .formLogin(AbstractHttpConfigurer::disable)
-            .httpBasic(AbstractHttpConfigurer::disable)
-
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .requestMatchers("/emailService/**").permitAll()
-                .anyRequest().denyAll()
-            );
+                .csrf(AbstractHttpConfigurer::disable)
+                .formLogin(AbstractHttpConfigurer::disable)
+                .httpBasic(AbstractHttpConfigurer::disable)
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers("/emailService/**").permitAll()
+                        .anyRequest().denyAll());
 
         return http.build();
     }
@@ -37,7 +33,7 @@ public class SecurityAndCorsConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration c = new CorsConfiguration();
-        c.setAllowedOrigins(List.of("https://krishna-mk09.github.io"));
+        c.setAllowedOrigins(List.of("*"));
         c.setAllowedMethods(List.of("GET", "POST", "OPTIONS"));
         c.setAllowedHeaders(List.of("*"));
         c.setAllowCredentials(false);
