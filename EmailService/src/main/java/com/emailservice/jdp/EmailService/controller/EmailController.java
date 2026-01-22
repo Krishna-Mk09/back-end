@@ -16,6 +16,7 @@ public class EmailController {
 
     @PostMapping("/send-email")
     public ResponseEntity<String> sendEmail(@RequestBody EmailRequest request) {
+        System.out.println("Controller reached!");
         emailService.sendEmail(request);
         return ResponseEntity.ok("Email Sent Successfully");
     }
