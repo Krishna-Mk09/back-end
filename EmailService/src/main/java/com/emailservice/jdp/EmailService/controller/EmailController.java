@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "https://krishna-mk09.github.io")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/emailService")
